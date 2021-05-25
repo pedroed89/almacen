@@ -9,6 +9,7 @@ import { Producto } from '../clases/producto';
 export class ListaProductosComponent implements OnInit {
   productos: Producto[] = [
     {
+      id:1,
       codigo:"FAria",
       nombre:"Fideos Arias",
       descripcion:"Fideos secos Arias 500gr",
@@ -18,6 +19,7 @@ export class ListaProductosComponent implements OnInit {
       stock:10,
     },
     {
+      id:2,
       codigo:"ABC",
       nombre:"Torta Alfajor",
       descripcion:"Torta artesanal",
@@ -27,6 +29,7 @@ export class ListaProductosComponent implements OnInit {
       stock:20,
     },
     {
+      id:3,
       codigo:"ERR",
       nombre:"Cerveza artesanal",
       descripcion:"Cerveza artesana",
@@ -36,15 +39,17 @@ export class ListaProductosComponent implements OnInit {
       stock:40,
     },
     {
+      id:4,
       codigo:"AAA",
       nombre:"Aceite de girasol",
       descripcion:"Aceite de girasol",
       precioVenta: 100,
       precioCosto: 80,
-      imagenUrl:"https://supercampo.perfil.com/wp-content/uploads/2016/10/aceite-de-girasol-624x429.jpg",
+      imagenUrl:"https://tiaecuador.vteximg.com.br/arquivos/ids/170789/257426000.jpg?v=637348493537970000",
       stock:50,
     },
     {
+      id:5,
       codigo:"BS2",
       nombre:"Lentejas",
       descripcion:"Lentejas 400g",
@@ -54,6 +59,7 @@ export class ListaProductosComponent implements OnInit {
       stock:25,
     },
     {
+      id:6,
       codigo:"987",
       nombre:"coco",
       descripcion:"coco entero",
@@ -63,6 +69,7 @@ export class ListaProductosComponent implements OnInit {
       stock:38,
     },
     {
+      id:7,
       codigo:"987",
       nombre:"coco",
       descripcion:"coco entero",
@@ -72,6 +79,7 @@ export class ListaProductosComponent implements OnInit {
       stock:38,
     },
     {
+      id:8,
       codigo:"987",
       nombre:"coco",
       descripcion:"coco entero",
@@ -83,6 +91,7 @@ export class ListaProductosComponent implements OnInit {
   ]
 
   sku = "";
+  valor=0;
   backup: Producto[];
   constructor() {
     this.backup = this.productos;
@@ -96,8 +105,14 @@ export class ListaProductosComponent implements OnInit {
       return producto.codigo.toLowerCase() === this.sku.toLowerCase();
     })
     this.productos = filteredProducts;
+    
   }
 
+  //  incrementar() {
+  //   let valor = document.getElementById("item");
+  //   if (valor.value < 10)valor.value ++;
+  //   }
+  
   handleCod(){
     if (this.sku.length === 0) {
       this.productos = this.backup;
