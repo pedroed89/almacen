@@ -41,7 +41,7 @@ export class ListaProductosComponent implements OnInit {
       descripcion:"Aceite de girasol",
       precioVenta: 100,
       precioCosto: 80,
-      imagenUrl:"https://supercampo.perfil.com/wp-content/uploads/2016/10/aceite-de-girasol-624x429.jpg",
+      imagenUrl:"https://tiaecuador.vteximg.com.br/arquivos/ids/170789/257426000.jpg?v=637348493537970000",
       stock:50,
     },
     {
