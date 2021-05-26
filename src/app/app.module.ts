@@ -8,7 +8,11 @@ import { CajaComponent } from './caja/caja.component';
 import { ProductoComponent } from './producto/producto.component';
 import { ListaProductosComponent } from './lista-productos/lista-productos.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 import { ProductoDetalleComponent } from './producto-detalle/producto-detalle.component';
+import { ProductoService } from './services/producto.service';
+import { ProductoCrudComponent } from './producto-crud/producto-crud.component';
+
 
 @NgModule({
   declarations: [
@@ -17,15 +21,17 @@ import { ProductoDetalleComponent } from './producto-detalle/producto-detalle.co
     CajaComponent,
     ProductoComponent,
     ListaProductosComponent,
-    ProductoDetalleComponent
+    ProductoDetalleComponent,
+    ProductoCrudComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ProductoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
