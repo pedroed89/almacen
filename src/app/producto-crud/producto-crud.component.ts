@@ -36,18 +36,9 @@ export class ProductoCrudComponent implements OnInit {
   }
 
   insertarProducto(){
-    this._productoService.insertarProducto({
-      "id":9,
-      "codigo": "FAria",
-      "nombre": "Fideos Arias",
-      "descripcion": "Fideos secos Arias 500gr",
-      "precioVenta": 45,
-      "precioCosto": 40,
-      "imagenUrl": "https://images-ti-vm1.tiendainglesa.com.uy/medium/P039591-1.jpg?20170830115429,Fideos-ADRIA-Tirabuzones-500-gr-en-Tienda-Inglesa",
-      "stock": 10
-  }).subscribe(response => {
-        console.log(response)
-    })
+    // this._productoService.insertarProducto().subscribe(response => {
+    //     console.log(response)
+    // })
   }
 
 }
