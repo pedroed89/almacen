@@ -36,4 +36,4 @@ import { CrearProductoComponent } from './crear-producto/crear-producto.componen
   providers: [ProductoService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { } 
