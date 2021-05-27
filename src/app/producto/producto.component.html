@@ -12,7 +12,9 @@
     <div class="card-body">
         <a href="#" class="btn btn-primary card-link"><i class="bi bi-cart"></i></a>
         <a href="#" class="btn btn-primary card-link"><i class="bi bi-eye"></i></a>
-        <i class="bi bi-cart">+</i><i class="bi bi-cart">-</i><input id="item" type="number" style="width : 30px;">
-             <!--<i class="bi bi-cart" [(click)]="item=item+1">+</i><i class="bi bi-cart">-</i><input id="item" type="number" style="width : 30px;">  -->     
+        <!--<i class="bi bi-cart">+</i><i class="bi bi-cart">-</i><input id="item" type="number" style="width : 30px;">
+             <i class="bi bi-cart" [(click)]="item=item+1">+</i><i class="bi bi-cart">-</i><input id="item" type="number" style="width : 30px;">  -->     
+             <!-- <boton de decremento (click)="decrementar()"><caja de texto [(value)]="cantidad"><boton de incremento (click)="incrementar()"></boton>-->   
+    <i class="bi bi-cart" (click)="decrementar()">-</i><i class="bi bi-cart" (click)="incrementar()">+</i><input [(ngModel)]="cantidad" style="width : 40px;">
     </div>
 </div>

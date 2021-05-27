@@ -93,6 +93,8 @@ export class ListaProductosComponent implements OnInit {
   sku = "";
   valor=0;
   backup: Producto[];
+  cantidad: any;
+
   constructor() {
     this.backup = this.productos;
    }
@@ -107,6 +109,7 @@ export class ListaProductosComponent implements OnInit {
     this.productos = filteredProducts;
     
   }
+  
 
   //  incrementar() {
   //   let valor = document.getElementById("item");
