@@ -8,6 +8,7 @@ import { CajaComponent } from './caja/caja.component';
 import { ProductoComponent } from './producto/producto.component';
 import { ListaProductosComponent } from './lista-productos/lista-productos.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InventarioComponent } from './inventario/inventario.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     InicioComponent,
     CajaComponent,
     ProductoComponent,
-    ListaProductosComponent
+    ListaProductosComponent,
+    InventarioComponent
   ],
   imports: [
     BrowserModule,

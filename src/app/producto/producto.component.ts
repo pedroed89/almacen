@@ -13,5 +13,14 @@ export class ProductoComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  lista = new Array();
+  
+  Agregar(){     
+    console.log(this.producto);
+    this.lista.push(this.producto.codigo)
+    console.log("lista " + this.lista);
 
+    sessionStorage.setItem("lista", this.lista.toString());
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Producto } from '../clases/producto';
 
 @Component({
   selector: 'app-caja',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CajaComponent implements OnInit {
 
-  constructor() { }
+  encabezado = [
+    'Cantidad',
+    'Codigo',
+    'Nombre',
+    'Precio Venta'
+  ]
 
+ 
+  constructor() { }
+ 
   ngOnInit(): void {
+    sessionStorage.getItem("Lista");
+  
   }
 
+
+  
+  cambio(){
+    
+  }
+
+  eliminar(){
+    
+  }
 }

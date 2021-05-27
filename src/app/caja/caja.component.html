@@ -1,1 +1,38 @@
-<p>caja works!</p>
+<div class="row" style="background: white;padding:15px 15px;margin: 0;">
+
+    <div>
+       <H2>Caja</H2>
+       <hr>
+    </div>   
+   <table class="table">
+       <thead>
+         <tr>
+           <th scope="col" *ngFor="let item of encabezado">{{item}}</th>
+         </tr>
+       </thead>
+       <tbody>
+         <!-- <tr *ngFor="let producto of productos">
+            <td>{{producto.cantidad}}</td> 
+           <td>{{producto.codigo}}</td>
+           <td>{{producto.nombre}}</td>
+           <td>{{producto.precioVenta}}</td>
+         </tr> -->
+       </tbody>
+       <tfoot>
+           <div id="total" ><h6> </h6></div>      
+       </tfoot>
+     </table>
+   
+     <form class="row g-3">
+       <div class="col-auto">
+         <label>Ingrese el monto recibido</label>
+       </div>
+       <div class="col-auto">
+         <input type="number" class="form-control" id="monto" placeholder="Monto">
+       </div>
+       <div class="col-auto">
+         <button class="btn btn-primary mb-3" (click)="cambio()">Cobrar</button>
+         <div id="cambio" style="display:none;"><label>Cambio: </label></div>      
+       </div>
+     </form>
+   </div>
