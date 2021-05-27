@@ -2,26 +2,26 @@
     <div class="col">
         <div class="input-group mb-3">
             <span class="input-group-text">$</span>
-            <input type="text" (input)="handleCod()" placeholder="Desde" class="form-control" [(ngModel)]="desde" aria-label="Amount (to the nearest dollar)">
+            <input type="text" (input)="handle()" placeholder="Desde" class="form-control" [(ngModel)]="desde" aria-label="Amount (to the nearest dollar)">
             <span class="input-group-text">.00</span>
         </div>
     </div>
     <div class="col">
         <div class="input-group mb-3">
             <span class="input-group-text">$</span>
-            <input type="text" (input)="handleCod()" placeholder="Hasta" class="form-control" [(ngModel)]="hasta" aria-label="Amount (to the nearest dollar)">
+            <input type="text" (input)="handle()" placeholder="Hasta" class="form-control" [(ngModel)]="hasta" aria-label="Amount (to the nearest dollar)">
             <span class="input-group-text">.00</span>
         </div>
     </div>
     <div class="col">
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">@</span>
-            <input type="text" (input)="handleCod()" class="form-control" [(ngModel)]="sku" placeholder="SKU" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" (input)="handle()" class="form-control" [(ngModel)]="sku" placeholder="SKU" aria-label="Username" aria-describedby="basic-addon1">
         </div>
     </div>
     <div class="col">
         <button class="btn btn-outline-success" (click)="filtrar()"><i class="bi bi-search"></i></button>
-        <button class="btn btn-outline-success" (click)="limpiar()"><i class="bi bi-trash"></i></button>
+        <button *ngIf="showTrash" class="btn btn-outline-success" (click)="limpiar()"><i class="bi bi-trash"></i></button>
     </div>
 
 
@@ -29,6 +29,12 @@
 </div>
 <hr>
 <div class="lista-col">
+    <div *ngIf="productos.length === 0" class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Productos</h1>
+            <p class="lead">No se encontraron productos</p>
+        </div>
+    </div>
     <div *ngFor="let producto of productos">
         <app-producto [producto]="producto"></app-producto>
     </div>
