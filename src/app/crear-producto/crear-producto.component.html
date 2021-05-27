@@ -1,0 +1,57 @@
+<p>crear-producto works!</p>
+<div class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Crear Producto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group col-md-6">
+                    <label for="producto-id">Id</label>
+                    <input type="text" class="form-input" id="producto-id" placeholder="Id">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="producto-codigo">Código de producto</label>
+                    <input type="text" class="form-input" id="producto-codigo" placeholder="Código de producto">
+                </div>
+                <div class="form-group">
+                  <label for="producto-nombre">Nombre</label>
+                  <input type="text" class="form-input" id="producto-nombre" placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                  <label for="producto-detalles">Detalles</label>
+                  <input type="text" class="form-input" id="producto-detalles" placeholder="Detalles">
+                </div>
+                <div class="form-group">
+                    <label for="producto-precio-compra">Precio Compra</label>
+                    <input type="text" class="form-input" id="producto-precio-compra" placeholder="Precio Compra">
+                </div>
+                <div class="form-group">
+                    <label for="producto-precio-venta">Precio Venta</label>
+                    <input type="text" class="form-input" id="producto-precio-venta" placeholder="Precio Venta">
+                </div>
+                <div class="form-group col-md-4">
+                <label for="producto-categoria">Categoria</label>
+                <select id="producto-categoria" class="form-input">
+                    <option selected>Choose...</option>
+                    <option>Almacen</option>
+                    <option>Frutas y Verduras</option>
+                    <option>Bebidas</option>
+                    <option>Agregar</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label for="producto-imagen">Imagen</label>
+                    <input type="image" class="form-input" id="producto-imagen" placeholder="Imagen">
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
