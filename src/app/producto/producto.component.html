@@ -10,7 +10,12 @@
         <li class="list-group-item"><strong>{{producto.stock}}</strong></li>
     </ul>
     <div class="card-body">
-        <a href="#" class="btn btn-primary card-link"><i class="bi bi-cart"></i></a>
+        <a href="#" (click)="addCart(producto)" class="btn btn-primary card-link"><i class="bi bi-cart"></i></a>
         <a [routerLink]="['/producto',producto.id]" class="btn btn-primary card-link"><i class="bi bi-eye"></i></a>
+    </div>
+    <div class="qty">
+        <a (click)="plus()" class="btn btn-danger"><i class="bi bi-plus"></i></a>
+        <input type="text" [(ngModel)]="qty" style="width: 35px; margin: 2px 5px; text-align: center;">
+        <a (click)="less()" class="btn btn-danger"><i class="bi bi-file-minus"></i></a>
     </div>
 </div>

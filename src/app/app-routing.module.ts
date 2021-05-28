@@ -11,6 +11,7 @@ const routes: Routes = [
   {path:'caja',component: CajaComponent},
   {path:'producto/:id',component:ProductoDetalleComponent},
   {path:'productos',component:ProductoCrudComponent}
+
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
