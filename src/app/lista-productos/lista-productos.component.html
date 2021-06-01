@@ -1,41 +1,45 @@
 <div class="row" style="background: white;padding:15px 15px;margin: 0;">
+    <!-- <h3><a class="btn btn-primary" (click)="insertarProducto()">Crear Producto</a></h3> -->
+    <div class="d-flex">
+        <input class="form-control me-2" type="search" [(ngModel)]="search" (input)="handleCod()" placeholder="Busqueda de productos" aria-label="Search">
+        <button class="btn btn-outline-secondary" (click)="filtrarporNombre()">Buscar</button>
+    </div>
+    <span>
+        <p class="font-weight-normal text-right my-2">Filtrar por costo.</p>
+    </span>
     <div class="col">
         <div class="input-group mb-3">
             <span class="input-group-text">$</span>
-            <input type="text" (input)="handle()" placeholder="Desde" class="form-control" [(ngModel)]="desde" aria-label="Amount (to the nearest dollar)">
+            <input type="text" placeholder="$ min." class="form-control" (input)="handleCod()" [(ngModel)]="desde" aria-label="Amount (to the nearest dollar)">
             <span class="input-group-text">.00</span>
         </div>
     </div>
     <div class="col">
         <div class="input-group mb-3">
             <span class="input-group-text">$</span>
-            <input type="text" (input)="handle()" placeholder="Hasta" class="form-control" [(ngModel)]="hasta" aria-label="Amount (to the nearest dollar)">
-            <span class="input-group-text">.00</span>
+            <input type="text" placeholder="$ max." (input)="handleCod()" class="form-control" [(ngModel)]="hasta" aria-label="Amount (to the nearest dollar)">
+            <button class="btn btn-outline-secondary" (click)="filtrarporPrecio()"><i class="bi bi-search"></i></button>
+            <button class="btn btn-outline-danger" (input)="handleCod()">Limpiar</button>
         </div>
     </div>
     <div class="col">
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">@</span>
-            <input type="text" (input)="handle()" class="form-control" [(ngModel)]="sku" placeholder="SKU" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" (input)="handleCod()" class="form-control" [(ngModel)]="sku" placeholder="SKU"
+                aria-label="Username" aria-describedby="basic-addon1">
+            <button class="btn btn-outline-secondary" (click)="filtrarporSku()"><i class="bi bi-search"></i></button>
         </div>
     </div>
-    <div class="col">
-        <button class="btn btn-outline-success" (click)="filtrar()"><i class="bi bi-search"></i></button>
-        <button *ngIf="showTrash" class="btn btn-outline-success" (click)="limpiar()"><i class="bi bi-trash"></i></button>
-    </div>
-
-
-
-</div>
-<hr>
-<div class="lista-col">
-    <div *ngIf="productos.length === 0" class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">Productos</h1>
-            <p class="lead">No se encontraron productos</p>
+    <hr>
+    <div class="lista-col">
+        <div *ngIf="productos.length === 0" class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Productos</h1>
+                <p class="lead">No se encontraron productos</p>
+            </div>
         </div>
-    </div>
-    <div *ngFor="let producto of productos">
-        <app-producto [producto]="producto"></app-producto>
+        <div *ngFor="let producto of productos">
+            <app-producto [producto]="producto"></app-producto>
+        </div>
     </div>
 </div>

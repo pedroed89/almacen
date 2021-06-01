@@ -1,14 +1,43 @@
 <div class="row" style="background: white;padding:15px 15px;margin: 0;">
     <h3><a class="btn btn-primary" (click)="insertarProducto()">Crear Producto</a></h3>
-    <div class="row">
-        <input placeholder="Buscar" type="text">
+    <div class="d-flex">
+        <input class="form-control me-2" type="search" [(ngModel)]="search" (input)="handleCod()" placeholder="Busqueda de productos" aria-label="Search">
+        <button class="btn btn-outline-secondary" (click)="filtrarporNombre()">Buscar</button>
     </div>
+    <span>
+        <p class="font-weight-normal text-right my-2">Filtrar por costo.</p>
+    </span>
+    <div class="col">
+        <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
+            <input type="text" placeholder="$ min." class="form-control" (input)="handleCod()" [(ngModel)]="desde"
+                aria-label="Amount (to the nearest dollar)">
+            <span class="input-group-text">.00</span>
+        </div>
+    </div>
+    <div class="col">
+        <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
+            <input type="text" placeholder="$ max." (input)="handleCod()" class="form-control" [(ngModel)]="hasta"
+                aria-label="Amount (to the nearest dollar)">
+            <button class="btn btn-outline-secondary" (click)="filtrarporPrecio()"><i class="bi bi-search"></i></button>
+            <button class="btn btn-outline-danger" (input)="handleCod()">Limpiar</button>
+        </div>
+    </div>
+    <div class="col">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">@</span>
+            <input type="text" (input)="handleCod()" class="form-control" [(ngModel)]="sku" placeholder="SKU"
+                aria-label="Username" aria-describedby="basic-addon1">
+            <button class="btn btn-outline-secondary" (click)="filtrarporSku()"><i class="bi bi-search"></i></button>
+        </div>
+    </div>
+    <hr>
     <div class="col">
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col" *ngFor="let item of columnas">{{item | uppercase}}</th>
-
                 </tr>
             </thead>
             <tbody>
@@ -20,10 +49,10 @@
                     <td>{{item.precioVenta}}</td>
                     <td>{{item.precioCosto}}</td>
                     <td>{{item.stock}}</td>
-                    <td><a (click)="updateProducto(item)" class="btn btn-primary"><i class="bi bi-pencil"></i></a><a (click)="deleteProducto(item.id)" class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
+                    <td><a (click)="updateProducto(item)" class="btn btn-primary"><i class="bi bi-pencil"></i></a>
+                    <td><a (click)="deleteProducto(item.id)" class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
                 </tr>
             </tbody>
         </table>
     </div>
-
 </div>

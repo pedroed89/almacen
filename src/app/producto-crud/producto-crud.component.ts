@@ -17,13 +17,25 @@ export class ProductoCrudComponent implements OnInit {
     'precioCosto',
     'stock'
   ]
-  productos: Producto[] = []
-  constructor(private _productoService: ProductoService) { }
+
+  productos:Producto[] = []
+  sku = "";
+  desde = 0;
+  hasta = 0;
+  search = "";
+  showTrash = false;
+  showJumbotron = false
+
+  backup: Producto[] = [];
+  constructor(private productoService: ProductoService) {
+
+  }
 
   ngOnInit(): void {
-    this._productoService.getAll().subscribe(response =>{
+    this.productoService.getAll().subscribe(response => {
+      console.log("Response",response)
       this.productos = response;
-      console.log(this.productos)
+      this.backup = this.productos;
     })
   }
 
@@ -41,4 +53,33 @@ export class ProductoCrudComponent implements OnInit {
     // })
   }
 
+//Hecho por Anto
+  filtrarporSku(){
+    let filteredProducts = this.productos.filter(producto =>{
+      return producto.codigo.toLowerCase() === this.sku.toLowerCase();
+    })
+    this.productos = filteredProducts;
+  }
+
+  filtrarporPrecio(){
+    let filteredProducts = this.productos.filter(producto =>{
+      return (producto.precioVenta <= this.hasta && producto.precioVenta >= this.desde);
+    })
+    this.productos = filteredProducts;
+  }
+
+  filtrarporNombre(){
+    let filteredProducts = this.productos.filter(producto =>{
+      return producto.nombre.toLowerCase().slice(0,this.search.length) === this.search.toLowerCase();
+    })
+    this.productos = filteredProducts;
+  }
+
+
+  handleCod(){
+    if (this.sku.length === 0) {
+      this.productos = this.backup;
+    }
+  }
 }
+
