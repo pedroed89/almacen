@@ -53,7 +53,7 @@ export class ProductoCrudComponent implements OnInit {
     // })
   }
 
-//Hecho por Anto
+//Hecho por Anto 
   filtrarporSku(){
     let filteredProducts = this.productos.filter(producto =>{
       return producto.codigo.toLowerCase() === this.sku.toLowerCase();

@@ -59,8 +59,7 @@ export class ListaProductosComponent implements OnInit {
       this.hasta = 0,
       this.productos = this.backup;
   }
-
-
+  
   handleCod() {
     if (this.sku.length === 0) {
       this.productos = this.backup;
