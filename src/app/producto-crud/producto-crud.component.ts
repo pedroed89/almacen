@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Producto } from '../clases/producto';
 import { ProductoService } from '../services/producto.service';
 
@@ -18,7 +19,7 @@ export class ProductoCrudComponent implements OnInit {
     'stock'
   ]
   productos: Producto[] = []
-  constructor(private _productoService: ProductoService) { }
+  constructor(private _productoService: ProductoService,private _router: Router) { }
 
   ngOnInit(): void {
     this._productoService.getAll().subscribe(response =>{
@@ -28,11 +29,17 @@ export class ProductoCrudComponent implements OnInit {
   }
 
   updateProducto(producto:Producto){
-    alert("Actualizar el producto " + producto.nombre )
+    this._router.navigate(["/add-producto",producto.id])
   }
 
   deleteProducto(id: number){
-    alert("Eliminar producto con id : "+ id)
+    this._productoService.eliminarProducto(id).subscribe((response:any)=>{
+      console.log(response)
+      const newItems = this.productos.filter((item:any)=>{
+        return item.id !== id
+      });
+      this.productos = newItems;
+    })
   }
 
   insertarProducto(){

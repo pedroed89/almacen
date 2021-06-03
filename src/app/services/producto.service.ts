@@ -5,8 +5,10 @@ import { Producto } from '../clases/producto';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductoService {
+export class ProductoService {     //ng g s producto
+
   url = "http://localhost:3000/productos"
+  
 
   constructor(private _http: HttpClient) {
 
@@ -18,5 +20,13 @@ export class ProductoService {
 
    insertarProducto(producto:Producto){
      return this._http.post(this.url,producto);
+   }
+
+   eliminarProducto(id:number){
+     return this._http.delete(this.url+"/"+id);
+   }
+
+   updateProducto(producto:Producto){
+     return this._http.put(this.url+"/"+producto.id,producto);
    }
 }

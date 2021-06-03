@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Producto } from '../clases/producto';
 
 @Component({
   selector: 'app-caja',
@@ -36,7 +37,6 @@ monto = 0;
       }
 
     });
-
   }
 
   handleCambio(){
@@ -98,6 +98,16 @@ monto = 0;
     });
     this.products = [];
 
+  }
+
+  deleteItem(producto: any){
+      sessionStorage.removeItem("producto"+producto.id);
+      const newItems = this.cartProduct.filter((item:any)=>{
+        return item.id !== producto.id
+      });
+      this.cartProduct = newItems;
+
+      this.total -= producto.cantidad*producto.precio;
   }
 
 }
